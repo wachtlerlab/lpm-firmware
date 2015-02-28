@@ -25,7 +25,7 @@ if(UNIX)
         list(APPEND CMAKE_SYSTEM_PREFIX_PATH ~/Applications
                                              /Applications
                                              /Developer/Applications
-                                             /sw        # Fink
+					     /Applications/Developer
                                              /opt/local) # MacPorts
     endif()
 elseif(WIN32)

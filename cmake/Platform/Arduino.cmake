@@ -651,6 +651,12 @@ function(REGISTER_HARDWARE_PLATFORM PLATFORM_PATH)
         list(FIND ARDUINO_PLATFORMS ${PLATFORM} platform_exists)
 
         if (platform_exists EQUAL -1)
+            set(AVR_SUBIDR "${PLATFORM_PATH}/avr")
+
+            if(IS_DIRECTORY ${AVR_SUBIDR})
+                set(PLATFORM_PATH ${AVR_SUBIDR})
+            endif()
+
             set(${PLATFORM}_PLATFORM_PATH ${PLATFORM_PATH} CACHE INTERNAL "The path to ${PLATFORM}")
             set(ARDUINO_PLATFORMS ${ARDUINO_PLATFORMS} ${PLATFORM} CACHE INTERNAL "A list of registered platforms")
 

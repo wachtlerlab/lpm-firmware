@@ -8,6 +8,6 @@ print_board_list()
 print_programmer_list()
 
 generate_arduino_firmware(rgb
-    SRCS rgb.cc
+    SRCS rgb.cc Adafruit_TLC5947.cpp
     BOARD micro
-    PORT /dev/tty.usbmodem1421)
+    PORT /dev/ttyACM0)

@@ -45,9 +45,21 @@ static void handle_reset(const String &args) {
     io.write();
 }
 
+static void handle_info(const String &args) {
+
+    uint16_t *pwmBuffer = io.getPWMBuffer();
+    for(int i=0; i< io.number_of_pins(); i++ ) {
+        Serial.print("Pin: ");
+        Serial.print(i);
+        Serial.print("  -  PWM: ");
+        Serial.println(pwmBuffer[i]);
+    }
+}
+
 command known_cmds[] = {
         {"pwm", handle_pwm},
         {"reset", handle_reset},
+        {"info", handle_info},
         {NULL, NULL}
 };
 

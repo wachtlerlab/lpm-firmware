@@ -58,6 +58,10 @@ void Adafruit_TLC5947::setPWM(uint8_t chan, uint16_t pwm) {
 }
 
 
+uint16_t Adafruit_TLC5947::getPWM(uint8_t chan) {
+  return pwmbuffer[chan];
+}
+
 void Adafruit_TLC5947::setLED(uint8_t lednum, uint16_t r, uint16_t g, uint16_t b) {
   setPWM(lednum*3, r);
   setPWM(lednum*3+1, g);
@@ -83,4 +87,9 @@ uint8_t Adafruit_TLC5947::number_of_pins() const {
 
 void Adafruit_TLC5947::reset() {
   memset(pwmbuffer, 0, sizeof(uint16_t)*24*numdrivers);
+}
+
+
+uint16_t* Adafruit_TLC5947::getPWMBuffer() {
+  return pwmbuffer;
 }

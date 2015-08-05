@@ -31,6 +31,7 @@ class Adafruit_TLC5947 {
   uint16_t getPWM(uint8_t chan);
   void setLED(uint8_t lednum, uint16_t r, uint16_t g, uint16_t b);
   void write(void);
+  uint16_t* getPWMBuffer();
 
   uint8_t number_of_pins() const;
   void reset();

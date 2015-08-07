@@ -5,11 +5,14 @@
 #endif
 
 #include <Adafruit_TLC5947.h>
+#include <nikon.h>
+
 
 Adafruit_TLC5947 io(1, 5, 4, 6);
 
 void setup() {
     io.begin();
+    pinMode(13, OUTPUT);
 }
 
 //pwm 10,4096
@@ -45,6 +48,12 @@ static void handle_reset(const String &args) {
     io.write();
 }
 
+static void handle_shoot(const String &args) {
+    //take picture using nikon camera
+    NikonRemote remote(13);
+    remote.click();
+}
+
 static void handle_info(const String &args) {
 
     uint16_t *pwmBuffer = io.getPWMBuffer();
@@ -60,6 +69,7 @@ command known_cmds[] = {
         {"pwm", handle_pwm},
         {"reset", handle_reset},
         {"info", handle_info},
+        {"shoot", handle_shoot},
         {NULL, NULL}
 };
 

@@ -8,6 +8,6 @@ print_board_list()
 print_programmer_list()
 
 generate_arduino_firmware(rgb
-    SRCS rgb.cc Adafruit_TLC5947.cpp
+    SRCS rgb.cc Adafruit_TLC5947.cpp nikon.cc
     BOARD micro
     PORT /dev/ttyACM0)

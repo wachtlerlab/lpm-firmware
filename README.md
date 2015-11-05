@@ -1,9 +1,10 @@
-# Control RGB LED via Arduino
-Mainly acts as a sekelton to build Arduino projects with CMake.
+# LED Pseudo Monochromator Firmware
 
-Port and board need to be configured via CMakeLists.txt
+Firmware for an Monochromator that is using a bank of LEDs which
+have their emission peak at different locations in the spectrum.
 
-Default IO pin config is:
-* red: pin 5 
-* green: pin 3
-* blue: pin 6
+A TLC5947 PWM controller is used for LED IO.
+
+Controlling the LEDs (on, off, brightness) is done via a simple
+ASCII based serial interface.
+

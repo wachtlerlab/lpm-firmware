@@ -14,9 +14,9 @@ else()
 endif()
 
 generate_arduino_firmware(rgb
-    SRCS rgb.cc Adafruit_TLC5947.cpp nikon.cc
-    BOARD micro
-    PORT ${DEVICE})
+        SRCS firmware.cc Adafruit_TLC5947.cpp nikon.cc
+        BOARD micro
+        PORT ${DEVICE})
 
 if(NOT EXISTS $ENV{DEVICE})
     message(WARNING "Device file ${DEVICE} does not exist!")

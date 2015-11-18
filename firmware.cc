@@ -97,7 +97,7 @@ void loop() {
             }
         }
 
-        Serial.println("*");
+        Serial.println("\u0004\n");
     }
 
 }
